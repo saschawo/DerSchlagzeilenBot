@@ -61,8 +61,8 @@ df <- df[!(df$Var1 %in% already.used.left),]
 df <- df[!(df$Var2 %in% already.used.right),]
 
 selected.row <- sample(1:nrow(df), 1)
-selected.left <- df[selected.row, "Var1"]
-selected.right <- df[selected.row, "Var2"]
+selected.left <- as.character(df[selected.row, "Var1"])
+selected.right <- as.character(df[selected.row, "Var2"])
 selected.tweet <- df[selected.row, "new"]
 write(selected.tweet, file = "tweeted.txt", append = T)
 write(selected.left, file = "tweeted-left.txt", append = T)
